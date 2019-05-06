@@ -14,6 +14,10 @@ if($senha == $row['senha']){
     session_start();
     $_SESSION['id'] = $row['id'];
     $_SESSION['nick'] = $row['nick'];
+    header('Location: ../indexVideos/indexVideos.php');
+}
+else{
+    header('Location: ../../index.html');
 }
 
 ?>
