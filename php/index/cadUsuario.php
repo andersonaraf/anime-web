@@ -24,7 +24,10 @@ try {
         $stmt->bindParam(3, $senha);
         $stmt->bindParam(4, $nivelAcesso);
 
-        $stmt->execute();
+        /*$conn->exec("INSERT INTO usuario(nick, login, senha, nivelAcesso) VALUES($nick, $usuario, $senha, $nivelAcesso)");
+        $conn->commit();
+        */
+        //$stmt->execute();
         echo "Cadastrado";
     }
     //$stmt->commit();

@@ -29,30 +29,26 @@
 
 <body>
     <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar">
         <a class="navbar-brand" href="#">Animes Black</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <ul class="navbar-nav mr-auto">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-            <ul class="navbar-nav mr-auto">
-
-            </ul>
-            <!--DROPDOWN NAVBAR-->
-            <div class="form-inline my-2 my-lg-0">
-                <div class="btn-group dropleft">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-cog"></i>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" data-toggle="modal" data-target="#modalLogin">ENTRAR</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" data-toggle="modal" data-target="#modalCad">REGISTRAR</a>
-                    </div>
+        </ul>
+        <!--DROPDOWN NAVBAR-->
+        <div class="form-inline my-2 my-lg-0">
+            <div class="btn-group dropleft">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-cog"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" data-toggle="modal" data-target="#modalLogin">ENTRAR</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#modalCad">REGISTRAR</a>
                 </div>
             </div>
         </div>
@@ -67,7 +63,7 @@
             aria-describedby="basic-addon1" id="buscaAnime" onkeyup="buscaAnime()">
     </div>
     <!--Resposta da busca-->
-    <div class="buscaResp card mb-5" id="bodyBuscaAnime" style="display: none"> 
+    <div class="buscaResp card mb-5" id="bodyBuscaAnime" style="display: none">
         <div class="row no-gutters" id="rowAnime">
             <div class="col-md-4" id="imgAnime">
                 <img src="" class="card-img" alt="">
@@ -100,7 +96,8 @@
                     <form action="php/index/login.php" method="post">
                         <div class="container-fluid">
                             <label for="recipient-login" class="col-form-label">Login: </label>
-                            <input type="text" class="form-control" id="recipient-loginL" name="inputLogin" autofocus required>
+                            <input type="text" class="form-control" id="recipient-loginL" name="inputLogin" autofocus
+                                required>
                             <label for="recipient-senha" class="col-form-label">Senha:</label>
                             <input type="password" class="form-control" id="recipient-senhaL" name="inputPass" required>
                         </div>
