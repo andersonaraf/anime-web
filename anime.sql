@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Maio-2019 às 19:36
+-- Generation Time: 13-Maio-2019 às 19:42
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -39,8 +39,8 @@ CREATE TABLE `anime` (
 --
 
 INSERT INTO `anime` (`id`, `nome`, `descricao`) VALUES
-(1, 'Kimi no uso', 'kimi'),
-(2, 'Kimi no Wa', 'Wa');
+(29, 'One Punch Man 2 Episodio 1', 'Assistir One Punch Man 2 Temporada - Episodio 01 - O Retorno do Herio'),
+(30, 'One Punch Man 2 Episodio 2', 'Assistir One Punch Man 2 Temporada - Episodio 02 -Monstro Humano');
 
 -- --------------------------------------------------------
 
@@ -52,17 +52,6 @@ CREATE TABLE `comentario` (
   `id` int(11) NOT NULL,
   `idUsuario` int(11) NOT NULL,
   `comentario` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `imagemanime`
---
-
-CREATE TABLE `imagemanime` (
-  `id` int(11) NOT NULL,
-  `URL` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -86,11 +75,28 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nick`, `login`, `senha`, `descricao`, `dataNascimento`, `nivelAcesso`) VALUES
-(1, 'Anderson', 'mrJocker', '123', NULL, NULL, 0),
+(1, 'Anderson', 'mrJocker', '123', NULL, NULL, 1),
 (2, 'teste', 'teste', 'teste', 'teste', NULL, 0),
-(6, 'Anderson', 'mrJocker2', '123', NULL, NULL, 0),
-(31, 'teste', 'teste', '123', NULL, NULL, 0),
-(32, 'teste2', 'teste2', '123', NULL, NULL, 0);
+(6, 'Anderson', 'mrJocker2', '123', NULL, NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `videoanime`
+--
+
+CREATE TABLE `videoanime` (
+  `id` int(11) NOT NULL,
+  `URL` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `videoanime`
+--
+
+INSERT INTO `videoanime` (`id`, `URL`) VALUES
+(29, 'https://www.youtube.com/embed/ffcc4tZSlD8'),
+(30, 'https://www.youtube.com/embed/yk-uRYJi5Zc');
 
 --
 -- Indexes for dumped tables
@@ -100,7 +106,8 @@ INSERT INTO `usuario` (`id`, `nick`, `login`, `senha`, `descricao`, `dataNascime
 -- Indexes for table `anime`
 --
 ALTER TABLE `anime`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nome` (`nome`);
 
 --
 -- Indexes for table `comentario`
@@ -110,15 +117,15 @@ ALTER TABLE `comentario`
   ADD KEY `comentario_ibfk_2` (`idUsuario`);
 
 --
--- Indexes for table `imagemanime`
---
-ALTER TABLE `imagemanime`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `videoanime`
+--
+ALTER TABLE `videoanime`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -129,7 +136,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `anime`
 --
 ALTER TABLE `anime`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `usuario`
@@ -149,10 +156,10 @@ ALTER TABLE `comentario`
   ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE;
 
 --
--- Limitadores para a tabela `imagemanime`
+-- Limitadores para a tabela `videoanime`
 --
-ALTER TABLE `imagemanime`
-  ADD CONSTRAINT `imagemanime_ibfk_1` FOREIGN KEY (`id`) REFERENCES `anime` (`id`) ON DELETE CASCADE;
+ALTER TABLE `videoanime`
+  ADD CONSTRAINT `videoanime_ibfk_1` FOREIGN KEY (`id`) REFERENCES `anime` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
