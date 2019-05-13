@@ -61,7 +61,7 @@ if($req == "adicionarVideo"){
            #SETAR URL
            try{
                 $videoAnime->inserirURL($anime->getId(), $conn);
-                return header("Location: ../view/index.php");
+                return header("Location: ../view/animeBlack.php");
            }catch(Exception $e){
                 echo $e->getMessage();
            }
