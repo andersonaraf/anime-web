@@ -23,10 +23,10 @@ Class VideoAnime{
         return $this;
     }
 
-    public function inserirURL($idAnime ,PDO $conn){
+    public function inserirURL(PDO $conn){
         $sql = "INSERT INTO videoAnime(id, URL) VALUES(?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(1, $idAnime);
+        $stmt->bindParam(1, $this->id);
         $stmt->bindParam(2, $this->URL);
         if($stmt->execute() > 0){
             return 1;

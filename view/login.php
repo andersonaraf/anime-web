@@ -21,6 +21,7 @@
     <div class="float-right">
         <a href="#"><i class="fas fa-user-secret btn btn-primary"><input type="button" value="Requisitar-Administração" class="fas btn"></i></a>
     </div>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -44,6 +45,7 @@
                             </div>
                             <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Logar</button>
                             <hr class="my-4">
+                            <h5 class="text-center"><a href="registrar.html">Registrar-se</a></h5>
                         </form>
                     </div>
                 </div>

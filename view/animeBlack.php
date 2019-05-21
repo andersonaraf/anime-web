@@ -46,7 +46,23 @@
         <h1 class="my-4">Animes</h1>
         <div class="row">
             <!-- VIDEO!-->
+            <!--
+                https://drive.google.com/file/d/1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn/view?usp=sharing
+                https://drive.google.com/open?id=1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn
+                https://drive.google.com/open?id=1_LLHh9bZC_115NcLGPeXrfEZe6MceQTe
+                https://drive.google.com/open?id=1yVqkYJDSQ-1prlkeRCJwly3g6IEVb457
+                https://drive.google.com/uc?export=download&id= COLOCAR O ID DO LINK COMPARTILHADO
+                Shingeki No Kyojin - Episodio 1
+                https://drive.google.com/open?id=1zS0Xf58HqqtzmfqUlTIVD5jukmaVIQxp
+            !-->
+            <div class="">
 
+            </div>
+
+
+            <video width="470" height="255" controls="controls" poster="https://drive.google.com/uc?export=download&id=1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn">
+                <source src="https://drive.google.com/uc?export=download&id=1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn" type='video/mp4'>
+            </video>
         </div>
 
 

@@ -2,31 +2,33 @@
 #REQ DECIDE QUAL AÇÃO SERA TOMADA PELO CONTROLLER;
 $req = $_GET['req'];
 
-#INCLUIR A CLASSE USUÁRIO
-include "../model/usuario.php";
-
-
 #INCLUIR A CONEXÃO
 require "../derivados/conexao.php";
+#CRIAR OBJETO CONEXAO
+$conn = new Conexao();
 
-
-if( $req == "loginAdmin" ){
+if( $req == "login" ){
     $login = $_POST['inputLogin'];
     $senha = $_POST['inputSenha'];
     #FAZER TRATAMENTO É da um return
+
+    #INCLUIR MODELS
+    include "../model/usuario.php";
 
     #CRIAR OBJETO DO TIPO USUARIO
     $usuario = new Usuario();
     $usuario->setLogin($login);
     $usuario->setSenha($senha);
-    $resp = $usuario->logar($conn); 
+    $resp = $usuario->logar($conn->conectar());
     #CASO O USUÁRIO EXISTA DEVOLVER A VIEW administracao.php
     if($resp != 0){
-        
+        if(row['nivelAcesso'] != 1){
+            return header('location: ../view/animeBlack.php');
+        }
         return  header('location: ../view/administracao.php');
     }
     #CASO O USUARIO NÂO EXISTA DEVOLVER A VIEW login.php
-    return  header('location: ../view/loginAdmin.php');
+    return  header('location: ../view/login.php');
 }
 
 if($req == "adicionarVideo"){
@@ -45,33 +47,28 @@ if($req == "adicionarVideo"){
     $anime->setNome($nome);
     $anime->setDescricao($desc);
     #INSERT VALUES DATABASE
-    if($anime->inserirAnime($conn) >= 1){
-        #PEGAR O RETURN DO SELECTID
-        $id = $anime->selectId($conn);
-        #SETA O RETORNO NO ID
-        $anime->setId($id);
-        #SELECT ID, PARA ENVIAR O VALOR DO OBEJTO COMPLETO A funcão EnviarVideo
-
-        if($anime->getId() >= 0){
-            #CREATE OBJECT VIDEOANIME
-            $videoAnime = new videoAnime;
-            #SET VALUES VIDEOANIMES
-            $videoAnime->setURL($url);
-            
-           #SETAR URL
-           try{
-                $videoAnime->inserirURL($anime->getId(), $conn);
-                return header("Location: ../view/animeBlack.php");
-           }catch(Exception $e){
-                echo $e->getMessage();
-           }
+    $idAnime = $anime->inserirAnime($conn->conectar());
+    echo $idAnime;
+    if($idAnime != 0){
+        $videoAnime = new VideoAnime();
+        $videoAnime->setId($idAnime);
+        $videoAnime->setURL($url);
+        if($videoAnime->inserirURL($conn->conectar()) != 0){
+            return header('location: ../view/animeBlack.php');
         }
     }
     #ERRO NA HORA DE INSERIR É REDIRECIONADO
     return header("Location: ../view/administracao.php");
 }
 
+#REGISTRO
+if($req = "registrar"){
+    #INCLUIR CONTROLLERS
+    include "../controller/RegistrarUsuario.php";
 
+    $registrarUsuario = new RegistrarUsuario();
+    $registrarUsuario->registro();
+}
 
 
 ?>

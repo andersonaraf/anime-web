@@ -36,19 +36,8 @@ class Anime{
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $this->nome);
         $stmt->bindParam(2, $this->descricao);
-        return $stmt->execute();
-    }
-
-
-    public function selectId($conn){
-        $sql = "SELECT id FROM anime WHERE nome = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(1, $this->nome);
         $stmt->execute();
-        if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            return $row['id'];
-        }
-        return "falso";
+        return $conn->lastInsertId();
     }
 }
 

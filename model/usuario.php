@@ -57,7 +57,7 @@ Class Usuario{
         $this->nivelAcesso = $nivelAcesso;
     }
 
-    public function logar($conn){
+    public function logar(PDO $conn){
         #CONSULTA SQL
         $sql = "SELECT * FROM usuario WHERE login = ?";
         $stmt = $conn->prepare($sql);
@@ -66,7 +66,7 @@ Class Usuario{
         #TRANSFORMANDO EM ARRAY A CONSULTA
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         #VERIFICANDO SE O USUÁRIO É VALIDO
-        if($this->senha == $row['senha'] && $row['nivelAcesso'] >= "1"){
+        if($this->senha == $row['senha']){
             #pergunta pro marlon
             #INICIANDO A SESSÃO -> CASO O USUÁRIO SEJA VALIDO
             session_start();
@@ -83,8 +83,17 @@ Class Usuario{
 
     }
 
-    public function cadastrarUsuario(){
-
+    public function cadastrar(PDO $conn){
+        #INSERT
+        $sql = "INSERT INTO usuario(nick, login, senha, nivelAcesso) VALUES(?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(1, $this->nick);
+        $stmt->bindParam(2, $this->login);
+        $stmt->bindParam(3, $this->senha);
+        $stmt->bindParam(4, $this->nivelAcesso);
+        $stmt->execute();
+        $this->setId($conn->lastInsertId());
+        return $this->getId();
     }
 
     public function alterarNivelAcesso(){

@@ -1,8 +1,4 @@
 <?php
-include "../model/usuario.php";
-include "../derivados/conexao.php";
-
-
 class RegistrarUsuario {
     public function registro(){
         $nick = $_POST['inputNick'];
