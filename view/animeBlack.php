@@ -19,25 +19,17 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Animes Black</a>
+            <a class="navbar-brand" href="animeBlack.php">Animes Black</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Minha Conta</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="login.php">Sair</a>
                     </li>
                 </ul>
             </div>
@@ -53,41 +45,13 @@
         <!-- Page Heading -->
         <h1 class="my-4">Animes</h1>
         <div class="row">
-            <?php
-                #INCLUIR O VIDEO.PHP PARA CRIAR O OBJETO
-                require "../model/video.php";
-                #CRIANDO INSTACIA
-                $video = new Video();
-                #RETORNANDO ANIME QUE ESTÃO NO SERVIDOR
-                $stmt = $video->pedirVideo();
-            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                echo " <div class='col-lg-4 col-sm-6 mb-4'> ";
-                    echo "<div class='card h-100'>";
-                        #COLOCAR <a> CASO UTILIZAR MODAL COM JS 
-                        #ALTERAR O IFRAME PARA VIDEO
-                        echo "<div class='card h-100'>";
-                            echo "<iframe  class='card-img-top' height='400' width='400' src='" .$row['url']. "' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"; 
-                        echo "</div>";
-                        echo "<div class='card-body'>";
-                            echo "<h4 class='card-title'>";
-                                echo $row['nome'];
-                            echo "</h4>";
-                       
-                            echo "<p class='card-text'>";
-                                echo $row['descricao'];
-                            echo "</p>";
-                        echo "</div>";
-                    echo "</div>";
-                echo "</div>";
-            }
-            #testa
-            /* 
-                nome: One Punch Man 2 Episodio 3
-                descrição: Assistir One Punch Man 2 Temporada - Episodio 03 - 
-                #url: https://www.youtube.com/embed/uZOlj64j-k8
-            */
-            ?>
+            <!-- VIDEO!-->
+
         </div>
+
+
+
+
         <!-- Pagination -->
         <ul class="pagination justify-content-center">
             <li class="page-item">
