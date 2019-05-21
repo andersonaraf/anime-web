@@ -43,8 +43,14 @@
     <div class="container ">
 
         <!-- Page Heading -->
-        <h1 class="my-4">Animes</h1>
+        <h1 class="my-4">Lançamentos</h1>
         <div class="row">
+            <?php
+                session_start();
+                echo "<pre>";
+                   //print_r($_SESSION['rowAnime']);
+                echo "</pre>";
+            ?>
             <!-- VIDEO!-->
             <!--
                 https://drive.google.com/file/d/1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn/view?usp=sharing
@@ -54,18 +60,48 @@
                 https://drive.google.com/uc?export=download&id= COLOCAR O ID DO LINK COMPARTILHADO
                 Shingeki No Kyojin - Episodio 1
                 https://drive.google.com/open?id=1zS0Xf58HqqtzmfqUlTIVD5jukmaVIQxp
+
+
+
+                <video width="700" height="400" controls="controls" poster="https://drive.google.com/uc?export=download&id=1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn">
+                    <source src="https://drive.google.com/uc?export=download&id=1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn" type='video/mp4'>
+                </video>
             !-->
-            <div class="">
+            <?php
+            $rowAnime = $_SESSION['rowAnime'];
+            $countRow = count($_SESSION['rowAnime']);
+            $i = 0;
+            while ($i <= $countRow - 1){
+                echo "<div class='col-lg-4 col-sm-6 mb-4'>";
+                    echo "<div class='card h-100'>";
+                        echo "<a href='#'><img class='card-img-top' src='http://placehold.it/700x400' alt=''></a>";
+                        echo "<div class='card-body'>";
+                            echo "<h4 class='card-title'>";
+                                echo "<a href='../controller/controller.php?req=escolherVideo&idVideo=".$rowAnime[$i]['idAnime']."'>". $rowAnime[$i]['nome'] ."</a>";
+                            echo "</h4>";
+                            echo "<p class='card-text'>" .$rowAnime[$i]['descricao']. "</p>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+                $i = $i + 1;
+            }
 
-            </div>
 
-
-            <video width="470" height="255" controls="controls" poster="https://drive.google.com/uc?export=download&id=1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn">
-                <source src="https://drive.google.com/uc?export=download&id=1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn" type='video/mp4'>
-            </video>
+            ?>
         </div>
-
-
+            <!--
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#">Project One</a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+                    </div>
+                </div>
+            </div>
+            !-->
 
 
         <!-- Pagination -->

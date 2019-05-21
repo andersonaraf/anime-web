@@ -39,6 +39,24 @@ class Anime{
         $stmt->execute();
         return $conn->lastInsertId();
     }
+
+    public function gerarLista(PDO $conn){
+        #ALTERAR DEPOIS
+        $sql = "SELECT anime.id idAnime, anime.nome, anime.descricao, videoanime.id idVideo, videoanime.URL FROM anime INNER JOIN videoanime ON anime.id = videoanime.id";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $rowAnimes = $stmt->fetchAll();
+        return $rowAnimes;
+    }
+
+    public function pegarVideo(PDO $conn){
+        $sql = "SELECT anime.nome, anime.descricao, videoanime.URL FROM anime INNER JOIN videoanime ON anime.id = ? AND anime.id = videoanime.id ";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(1, $this->id);
+        $stmt->execute();
+        $rowUnico = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $rowUnico;
+    }
 }
 
 ?>

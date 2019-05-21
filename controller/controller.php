@@ -4,6 +4,14 @@ $req = $_GET['req'];
 
 #INCLUIR A CONEXÃO
 require "../derivados/conexao.php";
+require "Session.php";
+
+#INCLUDE OBRIGATORIOS
+include "ListaAnime.php";
+include "../model/anime.php";
+include "../model/videoAnime.php";
+//listaAnimes();
+
 #CRIAR OBJETO CONEXAO
 $conn = new Conexao();
 
@@ -23,6 +31,7 @@ if( $req == "login" ){
     #CASO O USUÁRIO EXISTA DEVOLVER A VIEW administracao.php
     if($resp != 0){
         if(row['nivelAcesso'] != 1){
+
             return header('location: ../view/animeBlack.php');
         }
         return  header('location: ../view/administracao.php');
@@ -32,10 +41,6 @@ if( $req == "login" ){
 }
 
 if($req == "adicionarVideo"){
-    #INCLUIR OBJETOS
-    include "../model/anime.php";
-    include "../model/videoAnime.php";
-
     #GET PARAMETRS FORM
     $nome = $_POST['inputNome'];
     $desc = $_POST['txtDesc'];
@@ -62,13 +67,33 @@ if($req == "adicionarVideo"){
 }
 
 #REGISTRO
-if($req = "registrar"){
+if($req == "registrar"){
     #INCLUIR CONTROLLERS
     include "../controller/RegistrarUsuario.php";
 
     $registrarUsuario = new RegistrarUsuario();
-    $registrarUsuario->registro();
+    //$registrarUsuario->registro();
 }
+
+if($req == "escolherVideo"){
+    $listaAnime = new ListaAnime();
+    $listaAnime->carregamentoUnico();
+    return header('location: ../view/animeBlackVideo.php');
+}
+
+
+
+
+function listaAnimes(){
+    #INCLUDE CONTROLLER
+
+    $session = new Session();
+    $session->inicia();
+
+    $animeLista = new ListaAnime();
+    $session->anime($animeLista->carregarSession());
+}
+
 
 
 ?>

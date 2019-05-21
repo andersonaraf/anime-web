@@ -28,7 +28,7 @@
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Login Administrativo</h5>
-                        <form class="form-signin" method="POST" action="..\\controller/controller.php?req=loginAdmin">
+                        <form class="form-signin" method="POST" action="..\\controller/controller.php?req=login">
                             <div class="form-label-group">
                                 <input type="text" id="inputLogin" name="inputLogin" class="form-control" placeholder="Digite o login" required autofocus>
                                 <label for="inputEmail">Login</label>
