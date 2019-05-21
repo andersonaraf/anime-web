@@ -10,7 +10,6 @@ require "Session.php";
 include "ListaAnime.php";
 include "../model/anime.php";
 include "../model/videoAnime.php";
-//listaAnimes();
 
 #CRIAR OBJETO CONEXAO
 $conn = new Conexao();
@@ -81,7 +80,10 @@ if($req == "escolherVideo"){
     return header('location: ../view/animeBlackVideo.php');
 }
 
-
+if($req = "animeBlack.php"){
+    listaAnimes();
+    return header('Location: ../view/animeBlack.php');
+}
 
 
 function listaAnimes(){

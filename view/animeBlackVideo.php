@@ -45,32 +45,35 @@
         <br>
         <br>
         <div class="container">
-            <h1 class="my-4"><?php echo $rowAnimeUnico['nome'] ?>
-            </h1>
-                <!-- Portfolio Item Row -->
-                <div class="row">
-                    <div class="col-md-8">
+            <h1 class="my-4"> <?php echo $rowAnimeUnico['nome'] ?> </h1>
+            <!-- Portfolio Item Row -->
+            <div class="row">
+                <div class="col-md-8">
                     <?php
                         echo "<video class='img-fluid' width='750' height='500' controls='controls'>";
                             echo "<source src='" .$rowAnimeUnico['URL']. "' type='video/mp4'>";
                         echo "</video>";
                     ?>
-                    </div>
-                    <div class="col-md-4">
-                        <h3 class="my-3">Descrição: </h3>
-                        <p><?php echo $rowAnimeUnico['descricao'];?></p>
-
-                    </div>
                 </div>
+                <div class="col-md-4">
+                    <h3 class="my-3">Descrição: </h3>
+                    <p><?php echo $rowAnimeUnico['descricao'];?></p>
+                </div>
+            </div>
             <div class="my-4">
                 <h3 class="my-3">Comentarios: </h3>
                 <!--Comentarios INPUTS !-->
-                <div>
-                    
+                <div class="container">
+                    <div class="row">
+
+                    </div>
                 </div>
 
             </div>
+            <div class="form-group">
+                <label for="comment">Comentar:</label>
+                <textarea class="form-control" rows="5" id="comment" placeholder="Precione enter para enviar seu comentário"></textarea>
+            </div>
         </div>
-
     </body>
 </html>
