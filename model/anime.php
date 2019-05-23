@@ -50,7 +50,7 @@ class Anime{
     }
 
     public function pegarVideo(PDO $conn){
-        $sql = "SELECT anime.nome, anime.descricao, videoanime.URL FROM anime INNER JOIN videoanime ON anime.id = ? AND anime.id = videoanime.id ";
+        $sql = "SELECT anime.id idAnime, anime.nome, anime.descricao, videoanime.URL FROM anime INNER JOIN videoanime ON anime.id = ? AND anime.id = videoanime.id ";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $this->id);
         $stmt->execute();

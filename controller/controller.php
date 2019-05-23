@@ -13,7 +13,7 @@ include "../model/videoAnime.php";
 
 #CRIAR OBJETO CONEXAO
 $conn = new Conexao();
-
+$sess = new Session();
 if( $req == "login" ){
     $login = $_POST['inputLogin'];
     $senha = $_POST['inputSenha'];
@@ -27,9 +27,14 @@ if( $req == "login" ){
     $usuario->setLogin($login);
     $usuario->setSenha($senha);
     $resp = $usuario->logar($conn->conectar());
+    $usuario->setId($resp['id']);
+    $usuario->setLogin($resp['login']);
+    $usuario->setNick($resp['nick']);
+    $usuario->setNivelAcesso($resp['nivelAcesso']);
     #CASO O USUÁRIO EXISTA DEVOLVER A VIEW administracao.php
     if($resp != 0){
-        if(row['nivelAcesso'] != 1){
+        $sess->usuario($usuario);
+        if($usuario->getNivelAcesso() != 1){
 
             return header('location: ../view/animeBlack.php');
         }
@@ -80,7 +85,28 @@ if($req == "escolherVideo"){
     return header('location: ../view/animeBlackVideo.php');
 }
 
-if($req = "animeBlack.php"){
+if($req == "comentar"){
+    #INCLUIR MODEL
+    include "../model/Comentario.php";
+    #INCLUIR A CLASSE COMENTÁRIO
+    include "Comentarios.php";
+    #CRIAR OBJETO
+    $comentario = new Comentarios();
+    $retorno = $comentario->enviar();
+    echo $retorno;
+}
+
+if($req == "getComentario"){
+    #INCLUIR MODEL
+    include "../model/Comentario.php";
+    #INCLUIR A CLASSE COMENTÁRIO
+    include "Comentarios.php";
+
+    $comment = new Comentarios();
+    $comment->get();
+}
+
+if($req == "animeBlack.php"){
     listaAnimes();
     return header('Location: ../view/animeBlack.php');
 }
