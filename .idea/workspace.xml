@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea99810b-0839-4782-a971-92d72b98364d" name="Default Changelist" comment="CRIAR REGISTRO DE USUARIO">
-      <change afterPath="$PROJECT_DIR$/controller/UsuarioAction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/atualizar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Comentarios.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Comentarios.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ListaAnime.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ListaAnime.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Session.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/RegistrarUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/RegistrarUsuario.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/registrar.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/registrar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/video.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Comentario.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Comentario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/administracao.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administracao.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/animeBlack.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/animeBlack.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/animeBlackVideo.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/animeBlackVideo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/registrar.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/registrar.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,20 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
-              <caret line="161" column="45" lean-forward="true" selection-start-line="161" selection-start-column="45" selection-end-line="161" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controller/Session.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+            <state relative-caret-position="340">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -75,12 +61,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/derivados/session.php" />
-        <option value="$PROJECT_DIR$/view/registrar.html" />
         <option value="$PROJECT_DIR$/model/usuario.php" />
         <option value="$PROJECT_DIR$/derivados/conexao.php" />
         <option value="$PROJECT_DIR$/model/video.php" />
         <option value="$PROJECT_DIR$/model/videoAnime.php" />
-        <option value="$PROJECT_DIR$/controller/RegistrarUsuario.php" />
         <option value="$PROJECT_DIR$/view/login.php" />
         <option value="$PROJECT_DIR$/controller/Comentario.php" />
         <option value="$PROJECT_DIR$/model/anime.php" />
@@ -88,16 +72,18 @@
         <option value="$PROJECT_DIR$/model/Comentario.php" />
         <option value="$PROJECT_DIR$/view/teste.php" />
         <option value="$PROJECT_DIR$/view/administracao.php" />
-        <option value="$PROJECT_DIR$/view/animeBlackVideo.php" />
-        <option value="$PROJECT_DIR$/js/atualizar.js" />
-        <option value="$PROJECT_DIR$/js/registrar.js" />
         <option value="$PROJECT_DIR$/controller/Sair.php" />
         <option value="$PROJECT_DIR$/view/animeBlack.php" />
         <option value="$PROJECT_DIR$/controller/Comentarios.php" />
         <option value="$PROJECT_DIR$/controller/ListaAnime.php" />
         <option value="$PROJECT_DIR$/controller/UsuarioAction.php" />
-        <option value="$PROJECT_DIR$/controller/controller.php" />
         <option value="$PROJECT_DIR$/controller/Session.php" />
+        <option value="$PROJECT_DIR$/js/registrar.js" />
+        <option value="$PROJECT_DIR$/js/atualizar.js" />
+        <option value="$PROJECT_DIR$/view/animeBlackVideo.php" />
+        <option value="$PROJECT_DIR$/view/registrar.html" />
+        <option value="$PROJECT_DIR$/controller/RegistrarUsuario.php" />
+        <option value="$PROJECT_DIR$/controller/controller.php" />
       </list>
     </option>
   </component>
@@ -136,6 +122,11 @@
               <item name="anime-web" type="b2602c69:ProjectViewProjectNode" />
               <item name="anime-web" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="anime-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anime-web" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="anime-web" type="b2602c69:ProjectViewProjectNode" />
@@ -205,7 +196,7 @@
       <workItem from="1558473387137" duration="1250000" />
       <workItem from="1558626214979" duration="6662000" />
       <workItem from="1558799893781" duration="902000" />
-      <workItem from="1558959354110" duration="16538000" />
+      <workItem from="1558959354110" duration="18090000" />
     </task>
     <task id="LOCAL-00001" summary="CRIAR REGISTRO DE USUARIO">
       <created>1558444861623</created>
@@ -246,11 +237,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42450000" />
+    <option name="totallyTimeSpent" value="44002000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16151386" />
@@ -293,13 +283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="28" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/registrar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="151" selection-start-line="37" selection-start-column="139" selection-end-line="37" selection-end-column="151" />
         </state>
       </provider>
     </entry>
@@ -346,13 +329,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/usuario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="75" column="23" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/administracao.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -371,34 +347,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="54" column="283" selection-start-line="54" selection-start-column="283" selection-end-line="54" selection-end-column="283" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/RegistrarUsuario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/atualizar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/registrar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/animeBlackVideo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-601">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
@@ -437,10 +385,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/controller.php">
+    <entry file="file://$PROJECT_DIR$/js/atualizar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="161" column="45" lean-forward="true" selection-start-line="161" selection-start-column="45" selection-end-line="161" selection-end-column="45" />
+        <state relative-caret-position="306">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/animeBlackVideo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/registrar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/registrar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="118" selection-start-line="24" selection-start-column="118" selection-end-line="24" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/usuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="75" column="23" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/RegistrarUsuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -448,6 +431,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>

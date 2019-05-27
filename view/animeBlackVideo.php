@@ -18,7 +18,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <!-- MY SCRIPT -->
         <script src="../js/registrar.js"></script>
-
+        <script src="../js/atualizar.js"></script>
         <?php
             session_start();
             if(empty($_SESSION['idUsuario'])){

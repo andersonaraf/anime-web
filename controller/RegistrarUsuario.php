@@ -14,7 +14,7 @@ class RegistrarUsuario {
         #CRIAR OBEJTO CONEXAO
         $conn = new Conexao();
         if( $usuario->cadastrar($conn->conectar()) != 0){
-            #VER O QUE FAZER
+            return header('Location: ../view/login.php');
         }
 
     }

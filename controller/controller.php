@@ -11,10 +11,12 @@ include "ListaAnime.php";
 include "../model/anime.php";
 include "../model/videoAnime.php";
 include "../model/Comentario.php";
+include "../model/usuario.php";
 
 #INCLUDE DE CONTROLLER;
 include "Comentarios.php";
 include "UsuarioAction.php";
+include "RegistrarUsuario.php";
 
 #CARREGADA EM QUALQUER SITE
 listaAnimes();
@@ -27,10 +29,7 @@ $sess->inicia();
 if( $req == "login" ){
     $login = $_POST['inputLogin'];
     $senha = $_POST['inputSenha'];
-    #FAZER TRATAMENTO É da um return
 
-    #INCLUIR MODELS
-    include "../model/usuario.php";
 
     #CRIAR OBJETO DO TIPO USUARIO
     $usuario = new Usuario();
@@ -84,11 +83,8 @@ if($req == "adicionarVideo"){
 
 #REGISTRO
 if($req == "registrar"){
-    #INCLUIR CONTROLLERS
-    include "../controller/RegistrarUsuario.php";
-
     $registrarUsuario = new RegistrarUsuario();
-    //$registrarUsuario->registro();
+    $registrarUsuario->registro();
 }
 
 #ESCOLHER VIDEO ÚNICO PARA CARREGAR NA SESSÃO E DEVOLVER A PAGINA ANIMEBLACKVIDEO.PHP
