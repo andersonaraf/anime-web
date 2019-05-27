@@ -12,7 +12,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!--FONTAWESOME-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+    <?php
+        #VALIDAR SESSÃO
+        session_start();
+        if(empty($_SESSION['idUsuario'])){
+            return header('Location: login.php');
+        }
+    ?>
     <title>Anime Black</title>
 </head>
 
@@ -29,7 +35,7 @@
                         <a class="nav-link" href="#">Minha Conta</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Sair</a>
+                        <a class="nav-link" href="../controller/controller.php?req=sair">Sair</a>
                     </li>
                 </ul>
             </div>
@@ -45,28 +51,6 @@
         <!-- Page Heading -->
         <h1 class="my-4">Lançamentos</h1>
         <div class="row">
-            <?php
-                session_start();
-                echo "<pre>";
-                   //print_r($_SESSION['rowAnime']);
-                echo "</pre>";
-            ?>
-            <!-- VIDEO!-->
-            <!--
-                https://drive.google.com/file/d/1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn/view?usp=sharing
-                https://drive.google.com/open?id=1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn
-                https://drive.google.com/open?id=1_LLHh9bZC_115NcLGPeXrfEZe6MceQTe
-                https://drive.google.com/open?id=1yVqkYJDSQ-1prlkeRCJwly3g6IEVb457
-                https://drive.google.com/uc?export=download&id= COLOCAR O ID DO LINK COMPARTILHADO
-                Shingeki No Kyojin - Episodio 1
-                https://drive.google.com/open?id=1zS0Xf58HqqtzmfqUlTIVD5jukmaVIQxp
-
-
-
-                <video width="700" height="400" controls="controls" poster="https://drive.google.com/uc?export=download&id=1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn">
-                    <source src="https://drive.google.com/uc?export=download&id=1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn" type='video/mp4'>
-                </video>
-            !-->
             <?php
             $rowAnime = $_SESSION['rowAnime'];
             $countRow = count($_SESSION['rowAnime']);
@@ -85,25 +69,8 @@
                 echo "</div>";
                 $i = $i + 1;
             }
-
-
             ?>
         </div>
-            <!--
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#">Project One</a>
-                        </h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
-                    </div>
-                </div>
-            </div>
-            !-->
-
-
         <!-- Pagination -->
         <ul class="pagination justify-content-center">
             <li class="page-item">
