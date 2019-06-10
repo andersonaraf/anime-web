@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13-Maio-2019 às 19:42
+-- Generation Time: 27-Maio-2019 às 20:49
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -39,8 +39,11 @@ CREATE TABLE `anime` (
 --
 
 INSERT INTO `anime` (`id`, `nome`, `descricao`) VALUES
-(29, 'One Punch Man 2 Episodio 1', 'Assistir One Punch Man 2 Temporada - Episodio 01 - O Retorno do Herio'),
-(30, 'One Punch Man 2 Episodio 2', 'Assistir One Punch Man 2 Temporada - Episodio 02 -Monstro Humano');
+(31, 'Shingeki No Kyojin - Episodio 1', 'Episodio 1'),
+(32, 'Shingeki No Kyojin - Episodio 2', 'Episodio 2'),
+(33, 'Shingeki No Kyojin - Episodio 3', 'Episodio 3'),
+(37, ' Shingeki No Kyojin - Episodio 4', 'Episodio 4'),
+(38, 'Shingeki No Kyojin - Episodio 5', 'Episodio 5');
 
 -- --------------------------------------------------------
 
@@ -50,8 +53,10 @@ INSERT INTO `anime` (`id`, `nome`, `descricao`) VALUES
 
 CREATE TABLE `comentario` (
   `id` int(11) NOT NULL,
+  `idAnime` int(11) NOT NULL,
   `idUsuario` int(11) NOT NULL,
-  `comentario` varchar(200) NOT NULL
+  `comentario` varchar(200) NOT NULL,
+  `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -77,7 +82,8 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`id`, `nick`, `login`, `senha`, `descricao`, `dataNascimento`, `nivelAcesso`) VALUES
 (1, 'Anderson', 'mrJocker', '123', NULL, NULL, 1),
 (2, 'teste', 'teste', 'teste', 'teste', NULL, 0),
-(6, 'Anderson', 'mrJocker2', '123', NULL, NULL, 0);
+(6, 'Anderson', 'mrJocker2', '123', NULL, NULL, 0),
+(7, 'teste2', 'teste2', '123', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -95,8 +101,11 @@ CREATE TABLE `videoanime` (
 --
 
 INSERT INTO `videoanime` (`id`, `URL`) VALUES
-(29, 'https://www.youtube.com/embed/ffcc4tZSlD8'),
-(30, 'https://www.youtube.com/embed/yk-uRYJi5Zc');
+(31, 'https://drive.google.com/uc?export=download&id=1vZepZENjNCCQfw4bVlQj0EVF8wJtb1qn'),
+(32, 'https://drive.google.com/uc?export=download&id=1zS0Xf58HqqtzmfqUlTIVD5jukmaVIQxp'),
+(33, 'https://drive.google.com/uc?export=download&id=1_LLHh9bZC_115NcLGPeXrfEZe6MceQTe'),
+(37, 'https://drive.google.com/uc?export=download&id=1yVqkYJDSQ-1prlkeRCJwly3g6IEVb457'),
+(38, 'https://dl.dropboxusercontent.com/s/6jlb9edmqf5vnty/shingeki-no-kyojin-episodio-5.mp4?dl=0');
 
 --
 -- Indexes for dumped tables
@@ -114,7 +123,8 @@ ALTER TABLE `anime`
 --
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `comentario_ibfk_2` (`idUsuario`);
+  ADD KEY `comentario_ibfk_2` (`idUsuario`),
+  ADD KEY `idAnime` (`idAnime`) USING BTREE;
 
 --
 -- Indexes for table `usuario`
@@ -136,13 +146,19 @@ ALTER TABLE `videoanime`
 -- AUTO_INCREMENT for table `anime`
 --
 ALTER TABLE `anime`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT for table `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -152,8 +168,8 @@ ALTER TABLE `usuario`
 -- Limitadores para a tabela `comentario`
 --
 ALTER TABLE `comentario`
-  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id`) REFERENCES `anime` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `comentario_ibfk_3` FOREIGN KEY (`idAnime`) REFERENCES `anime` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `videoanime`
