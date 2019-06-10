@@ -40,4 +40,23 @@ class Comentarios {
         return false;
     }
 
+    public function getCompleto(){
+        $conn = new Conexao();
+
+        #PEGAR SESSÃO
+        $video = $_SESSION['video'];
+
+
+        #OBJETO DO BANCO
+        $comment = new Comentario();
+        $comment->setIdAnime($video['idAnime']);
+        #respota do banco
+        $resp = $comment->buscaCompleta($conn->conectar());
+
+        if(count($resp) != 0){
+            return $resp;
+        }
+        return false;
+    }
+
 }

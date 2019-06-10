@@ -101,7 +101,7 @@
                 </div>
 
                 <small class="d-block text-right mt-3">
-                    <a href="#">Atualizar Página</a>
+                    <a href="../controller/controller.php?req=comentarioCom">Mostrar Todos Comentários</a>
                 </small>
 
                 <!--Comentarios INPUTS !-->

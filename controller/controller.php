@@ -152,6 +152,27 @@ if($req == 'refreshComent'){
     echo "<pre>";*/
 }
 
+
+#CARREGAR PAGINA DE COMENTARIOS COMPLETO
+if($req == 'comentarioCom'){
+    //APAGAR VALORES NA SESSÃO TODA VEZ QUE FOR REQUISITADO
+    $sess->esvaziar('rowComentCompleto');
+
+
+    #CRIAR OBJETO
+    $comment = new Comentarios();
+    $rowComentComple = $comment->getCompleto();
+
+    #VALIDAR RESPOSTA
+    if($rowComentComple != false){
+        $sess->criar('rowComentCompleto', $rowComentComple);
+        return header("Location: ../view/comentarios.php");
+    }else{
+        $sess->criar('rowComentCompleto', 'Não tem comentários para esse anime');
+        return header("Location: ../view/comentarios.php");
+    }
+}
+
 if($req == 'sair'){
     $action = new UsuarioAction();
     $action->sair();

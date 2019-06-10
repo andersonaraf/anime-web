@@ -52,7 +52,17 @@ class Comentario {
     }
 
     public function buscar(PDO $conn){
-        $sql = "SELECT usuario.nick, comentario.comentario, comentario.data, comentario.id, comentario.idAnime, comentario.idUsuario FROM anime INNER JOIN comentario ON comentario.idAnime = anime.id INNER JOIN usuario ON usuario.id = comentario.idUsuario WHERE comentario.idAnime = ?";
+        $sql = "SELECT usuario.nick, comentario.comentario, comentario.data, comentario.id, comentario.idAnime, comentario.idUsuario FROM anime INNER JOIN comentario ON comentario.idAnime = anime.id INNER JOIN usuario ON usuario.id = comentario.idUsuario WHERE comentario.idAnime = ? ORDER BY comentario.id DESC LIMIT 5";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(1, $this->idAnime);
+        $stmt->execute();
+        $row = $stmt->fetchAll();
+        return $row;
+    }
+
+
+    public function buscaCompleta(PDO $conn){
+        $sql = "SELECT comentario.id, comentario.idAnime, comentario.comentario, comentario.data, usuario.nick FROM comentario INNER JOIN usuario ON comentario.idUsuario = usuario.id WHERE comentario.idAnime = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $this->idAnime);
         $stmt->execute();

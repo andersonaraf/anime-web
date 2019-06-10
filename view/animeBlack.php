@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Minha Conta</a>
+                        <a class="nav-link" href="minhaConta.php">Minha Conta</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../controller/controller.php?req=sair">Sair</a>
